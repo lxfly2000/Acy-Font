@@ -1,0 +1,238 @@
+1. 垂直高度问题
+转换后的字体文件中部分字符高度可能不对，需要用ttx工具手动修正：
+ttx -f Acy-Regular.otf
+然后在ttx文件中修改vmtx部分的height值，修正为原来的字符高度（通常为1000，此处改为999），修改后执行下列命令保存为新的otf文件：
+ttx -f Acy-Regular.ttx
+
+2. 安卓系统行距问题
+转换后的字体在安卓中显示时行距过小，需要手动调整OS_2的sTypoAscender和sTypoDescender，sTypoLineGap，此处分别改为799，-196，995。
+    <sTypoAscender value="799"/>
+    <sTypoDescender value="-196"/>
+    <sTypoLineGap value="995"/>
+
+3. 笔刷使用错误
+字符CID428～CID520（不包括429、431）因错误使用笔刷导致在FontForge中导入这些字符时与其他字符相比会偏细，需要手动将粗细增加10%左右才能获得较好效果。
+
+4. 假名可能需要导入后缩放至120%
+因假名部分字符重写，相比原来可能字面偏小，需要调大字符。
+
+5. 字体名称问题
+ttx文件中name节点下id为4的名称需要加上<空格>+字重名称。部分其他名称亦需添加或修改，参考：https://zhuanlan.zhihu.com/p/38679788
+Regular的name节点：
+  <name>
+    <namerecord nameID="0" platformID="0" platEncID="3" langID="0x0">
+      Copyright (C) 2019-2022, lxfly2000 (lxfly2000@outlook.com)
+    </namerecord>
+    <namerecord nameID="1" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy
+    </namerecord>
+    <namerecord nameID="2" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      1.6;UKWN;Acy-Regular;lxfly2000
+    </namerecord>
+    <namerecord nameID="4" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy Regular
+    </namerecord>
+    <namerecord nameID="5" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Version 1.6;hotconv 1.1.0;makeotfexe 2.6.0
+    </namerecord>
+    <namerecord nameID="6" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy-Regular
+    </namerecord>
+    <namerecord nameID="7" platformID="0" platEncID="3" langID="0x0">
+      Acy-Font
+    </namerecord>
+    <namerecord nameID="8" platformID="0" platEncID="3" langID="0x0">
+      lxfly2000
+    </namerecord>
+    <namerecord nameID="9" platformID="0" platEncID="3" langID="0x0">
+      lxfly2000
+    </namerecord>
+    <namerecord nameID="11" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000
+    </namerecord>
+    <namerecord nameID="12" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000
+    </namerecord>
+    <namerecord nameID="13" platformID="0" platEncID="3" langID="0x0">
+      SIL Open Font License, Version 1.1
+    </namerecord>
+    <namerecord nameID="14" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000/Acy-Font/blob/master/LICENSE.TXT
+    </namerecord>
+    <namerecord nameID="1" platformID="3" platEncID="1" langID="0x409">
+      Acy
+    </namerecord>
+    <namerecord nameID="2" platformID="3" platEncID="1" langID="0x409">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="3" platEncID="1" langID="0x409">
+      1.6;UKWN;Acy-Regular;lxfly2000
+    </namerecord>
+    <namerecord nameID="4" platformID="3" platEncID="1" langID="0x409">
+      Acy Regular
+    </namerecord>
+    <namerecord nameID="5" platformID="3" platEncID="1" langID="0x409">
+      Version 1.6;hotconv 1.1.0;makeotfexe 2.6.0
+    </namerecord>
+    <namerecord nameID="6" platformID="3" platEncID="1" langID="0x409">
+      Acy-Regular
+    </namerecord>
+  </name>
+Medium的name节点：
+  <name>
+    <namerecord nameID="0" platformID="0" platEncID="3" langID="0x0">
+      Copyright (C) 2019-2022, lxfly2000 (lxfly2000@outlook.com)
+    </namerecord>
+    <namerecord nameID="1" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy Medium
+    </namerecord>
+    <namerecord nameID="2" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      1.6;UKWN;Acy-Medium;lxfly2000
+    </namerecord>
+    <namerecord nameID="4" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy Medium
+    </namerecord>
+    <namerecord nameID="5" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Version 1.6;hotconv 1.1.0;makeotfexe 2.6.0
+    </namerecord>
+    <namerecord nameID="6" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy-Medium
+    </namerecord>
+    <namerecord nameID="7" platformID="0" platEncID="3" langID="0x0">
+      Acy-Font
+    </namerecord>
+    <namerecord nameID="8" platformID="0" platEncID="3" langID="0x0">
+      lxfly2000
+    </namerecord>
+    <namerecord nameID="9" platformID="0" platEncID="3" langID="0x0">
+      lxfly2000
+    </namerecord>
+    <namerecord nameID="11" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000
+    </namerecord>
+    <namerecord nameID="12" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000
+    </namerecord>
+    <namerecord nameID="13" platformID="0" platEncID="3" langID="0x0">
+      SIL Open Font License, Version 1.1
+    </namerecord>
+    <namerecord nameID="14" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000/Acy-Font/blob/master/LICENSE.TXT
+    </namerecord>
+    <namerecord nameID="16" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy
+    </namerecord>
+    <namerecord nameID="17" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Medium
+    </namerecord>
+    <namerecord nameID="1" platformID="3" platEncID="1" langID="0x409">
+      Acy Medium
+    </namerecord>
+    <namerecord nameID="2" platformID="3" platEncID="1" langID="0x409">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="3" platEncID="1" langID="0x409">
+      1.6;UKWN;Acy-Medium;lxfly2000
+    </namerecord>
+    <namerecord nameID="4" platformID="3" platEncID="1" langID="0x409">
+      Acy Medium
+    </namerecord>
+    <namerecord nameID="5" platformID="3" platEncID="1" langID="0x409">
+      Version 1.6;hotconv 1.1.0;makeotfexe 2.6.0
+    </namerecord>
+    <namerecord nameID="6" platformID="3" platEncID="1" langID="0x409">
+      Acy-Medium
+    </namerecord>
+    <namerecord nameID="16" platformID="3" platEncID="1" langID="0x409">
+      Acy
+    </namerecord>
+    <namerecord nameID="17" platformID="3" platEncID="1" langID="0x409">
+      Medium
+    </namerecord>
+  </name>
+Bold的name节点：
+  <name>
+    <namerecord nameID="0" platformID="0" platEncID="3" langID="0x0">
+      Copyright (C) 2019-2022, lxfly2000 (lxfly2000@outlook.com)
+    </namerecord>
+    <namerecord nameID="1" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy Bold
+    </namerecord>
+    <namerecord nameID="2" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      1.6;UKWN;Acy-Bold;lxfly2000
+    </namerecord>
+    <namerecord nameID="4" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy Bold
+    </namerecord>
+    <namerecord nameID="5" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Version 1.6;hotconv 1.1.0;makeotfexe 2.6.0
+    </namerecord>
+    <namerecord nameID="6" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy-Bold
+    </namerecord>
+    <namerecord nameID="7" platformID="0" platEncID="3" langID="0x0">
+      Acy-Font
+    </namerecord>
+    <namerecord nameID="8" platformID="0" platEncID="3" langID="0x0">
+      lxfly2000
+    </namerecord>
+    <namerecord nameID="9" platformID="0" platEncID="3" langID="0x0">
+      lxfly2000
+    </namerecord>
+    <namerecord nameID="11" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000
+    </namerecord>
+    <namerecord nameID="12" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000
+    </namerecord>
+    <namerecord nameID="13" platformID="0" platEncID="3" langID="0x0">
+      SIL Open Font License, Version 1.1
+    </namerecord>
+    <namerecord nameID="14" platformID="0" platEncID="3" langID="0x0">
+      https://github.com/lxfly2000/Acy-Font/blob/master/LICENSE.TXT
+    </namerecord>
+    <namerecord nameID="16" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Acy
+    </namerecord>
+    <namerecord nameID="17" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Bold
+    </namerecord>
+    <namerecord nameID="1" platformID="3" platEncID="1" langID="0x409">
+      Acy Bold
+    </namerecord>
+    <namerecord nameID="2" platformID="3" platEncID="1" langID="0x409">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="3" platEncID="1" langID="0x409">
+      1.6;UKWN;Acy-Bold;lxfly2000
+    </namerecord>
+    <namerecord nameID="4" platformID="3" platEncID="1" langID="0x409">
+      Acy Bold
+    </namerecord>
+    <namerecord nameID="5" platformID="3" platEncID="1" langID="0x409">
+      Version 1.6;hotconv 1.1.0;makeotfexe 2.6.0
+    </namerecord>
+    <namerecord nameID="6" platformID="3" platEncID="1" langID="0x409">
+      Acy-Bold
+    </namerecord>
+    <namerecord nameID="16" platformID="3" platEncID="1" langID="0x409">
+      Acy
+    </namerecord>
+    <namerecord nameID="17" platformID="3" platEncID="1" langID="0x409">
+      Bold
+    </namerecord>
+  </name>
+
+6. “辰”字(CID1250)边界有问题造成大小错误。
+
+7. 加入拉丁字符后，需要修改CMAP表
+在最后一个cmap节点中加入CMapLatin.xlsx中的XML内容。
