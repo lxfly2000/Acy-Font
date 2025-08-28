@@ -1,0 +1,20 @@
+FontName                   (Acy-Regular)
+FullName                   (Acy Regular)
+FamilyName                 (Acy)
+Weight                     (Regular)
+Copyright                  (Copyright (c) 2019-2022, lxfly2000 (lxfly2000@outlook.com))
+Version                    (1.001)
+Registry                   (Adobe)
+Ordering                   (GB1)
+Supplement                 4
+FSType                     0
+isFixedPitch               false
+UnderlinePosition          -100
+Serif                      false
+IsBoldStyle                false
+IsItalicStyle              false
+PreferOS/2TypoMetrics      true
+IsOS/2WidthWeigthSlopeOnly false
+IsOS/2OBLIQUE              false
+UseOldNameID4              false
+LicenseCode                lxfly2000
